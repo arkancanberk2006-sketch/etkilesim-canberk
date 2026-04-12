@@ -12,7 +12,16 @@ body {
     color: white;
     min-height: 100vh;
     overflow-x: hidden;
+    
+    /* ... diğer ayarlar ... */
+    background-image: url('görüntü.jpg'); /* Resim dosyanızın adı */
+    background-size: cover; /* Resmi tüm ekrana sığdırır */
+    background-position: center; /* Resmi ortalar */
+    background-repeat: no-repeat; /* Resmin tekrarlanmasını engeller */
+    background-attachment: fixed; /* Arka planın içerikle birlikte kaymasını engeller */
+    color: white; /* Resim koyu olduğu için metin rengini beyaz yapıyoruz */
 }
+
 
 /* --- NAVBAR (MENÜ) TASARIMI --- */
 header {
