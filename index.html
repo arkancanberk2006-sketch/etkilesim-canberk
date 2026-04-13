@@ -3,47 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İlaç Hatırlatıcı | Ana Sayfa</title>
+    <title>Ana Sayfa | Vizyon</title>
     <link rel="stylesheet" href="assests/css/style.css">
 </head>
 <body>
-    
-    <header class="header">
-        <a href="index.html" class="logo">MediHatırlatıcı</a>
-        
-        <nav class="navbar">
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="index.html" class="nav-link">Ana Sayfa</a></li>
-                <li class="nav-item"><a href="project.html" class="nav-link">Proje Detayları</a></li>
-                <li class="nav-item"><a href="about.html" class="nav-link">Hakkımızda</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link">İletişim</a></li>
-            </ul>
-        </nav>
-        
-        <div class="hamburger">
+
+    <header>
+        <a href="index.html" class="logo">Vizyon<span>.</span></a>
+        <div class="hamburger" id="hamburger">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html" class="active-link">Ana Sayfa</a></li>
+            <li><a href="about.html">Hakkımızda</a></li>
+            <li><a href="project.html">Projeler</a></li>
+            <li><a href="contact.html">İletişim</a></li>
+        </ul>
     </header>
 
-    <main>
-        <section class="reminder-section">
-            <h1>İlaçlarınızı Unutmayın</h1>
-            <p>Yeni bir ilaç hatırlatıcısı ekleyin.</p>
-            
-            <form id="med-form">
-                <input type="text" id="med-name" placeholder="İlaç Adı (Örn: Parol)" required>
-                <input type="time" id="med-time" required>
-                <button type="submit">Hatırlatıcı Ekle</button>
-            </form>
-
-            <div class="med-list-container">
-                <h2>Bugünkü İlaçlarım</h2>
-                <ul id="med-list">
-                    </ul>
-            </div>
-        </section>
+    <main class="page-content">
+        <h1>Geleceği Tasarla</h1>
+        <p>Ayrı HTML dosyalarından oluşan, yüksek performanslı ve premium tasarımlı web sitenize hoş geldiniz.</p>
     </main>
 
     <script src="assests/js/main.js"></script>
