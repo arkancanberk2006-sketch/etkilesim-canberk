@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- MEVCUT HAMBURGER MENÜ KODUN ---
+    // ==========================================
+    // 1. HAMBURGER MENÜ ETKİLEŞİMİ
+    // ==========================================
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
 
@@ -19,55 +21,53 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Sayfa kaydırıldığında çalışacak fonksiyon
-window.onscroll = function() { updateProgressBar() };
-
-function updateProgressBar() {
-  // Sayfanın ne kadar aşağı kaydırıldığını hesapla
-  let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-  let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  let scrolled = (winScroll / height) * 100;
-  
-  // Çubuğun genişliğini bu değere göre güncelle
-  document.getElementById("myBar").style.width = scrolled + "%";
-}
     // ==========================================
-    // YENİ ETKİLEŞİM 1: SCROLL TO TOP (YUKARI ÇIK)
+    // 2. DARK MODE (KARANLIK TEMA) ETKİLEŞİMİ
     // ==========================================
-    // HTML'e <button id="scrollTop">↑</button> eklemeyi unutma.
-    const scrollTopBtn = document.getElementById('scrollTop');
-
-    if (scrollTopBtn) {
-        window.addEventListener('scroll', () => {
-            // 300px aşağı inilince butonu göster
-            if (window.scrollY > 300) {
-                scrollTopBtn.style.display = "block";
-            } else {
-                scrollTopBtn.style.display = "none";
-            }
-        });
-
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth' // Yumuşak geçiş sağlar
-            });
-        });
-    }
-
-    // ==========================================
-    // YENİ ETKİLEŞİM 2: DARK MODE (KARANLIK TEMA)
-    // ==========================================
-    // HTML'e <button id="themeToggle">Tema Değiştir</button> eklemeyi unutma.
     const themeToggle = document.getElementById('themeToggle');
 
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
             document.body.classList.toggle('dark-theme');
             
-            // Kullanıcının tercihini kaydet (opsiyonel)
             const isDark = document.body.classList.contains('dark-theme');
             themeToggle.innerText = isDark ? "Gündüz Modu" : "Gece Modu";
+        });
+    }
+
+    // ==========================================
+    // 3. SCROLL (KAYDIRMA) ETKİLEŞİMLERİ (Çubuk ve Buton)
+    // ==========================================
+    const scrollTopBtn = document.getElementById('scrollTop');
+    const myBar = document.getElementById("myBar");
+
+    window.addEventListener('scroll', () => {
+        
+        // A) Yukarı Çık Butonunu Göster/Gizle
+        if (scrollTopBtn) {
+            if (window.scrollY > 300) {
+                scrollTopBtn.style.display = "block";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        }
+
+        // B) Sayfa İlerleme Çubuğunu Doldur
+        if (myBar) {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            myBar.style.width = scrolled + "%";
+        }
+    });
+
+    // Yukarı Çık Butonuna Tıklanma Olayı
+    if (scrollTopBtn) {
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     }
 
